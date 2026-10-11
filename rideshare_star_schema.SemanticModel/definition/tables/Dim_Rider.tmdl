@@ -1,0 +1,97 @@
+table Dim_Rider
+	lineageTag: 2477b311-0fe3-40ae-944b-cae7c62362b6
+	sourceLineageTag: [dbo].[Dim_Rider]
+
+	column RiderKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cc3eabce-5ad6-4824-a4cf-63714790f5a3
+		sourceLineageTag: RiderKey
+		summarizeBy: none
+		sourceColumn: RiderKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiderID
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 3d384cad-31f8-4e2c-b186-df811de14a78
+		sourceLineageTag: RiderID
+		summarizeBy: none
+		sourceColumn: RiderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiderName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: cac7ebe4-555a-4d1f-9392-f007e0566178
+		sourceLineageTag: RiderName
+		summarizeBy: none
+		sourceColumn: RiderName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		sourceProviderType: varchar(150)
+		lineageTag: 31a37ae5-11ce-43c6-8e54-9a44a5a05ecf
+		sourceLineageTag: Email
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoyaltyTier
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: c939e9c2-e856-4524-87ad-08846d35a1d8
+		sourceLineageTag: LoyaltyTier
+		summarizeBy: none
+		sourceColumn: LoyaltyTier
+
+		annotation SummarizationSetBy = Automatic
+
+	column EffectiveFrom
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: e37b7c54-5a1b-4dec-b694-5848b60d5ae0
+		sourceLineageTag: EffectiveFrom
+		summarizeBy: none
+		sourceColumn: EffectiveFrom
+
+		annotation SummarizationSetBy = Automatic
+
+	column EffectiveTo
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 2153c62f-4570-4d09-9094-c67fb0dee4f4
+		sourceLineageTag: EffectiveTo
+		summarizeBy: none
+		sourceColumn: EffectiveTo
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCurrent
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: dc52f833-7133-4dd3-a959-26626339df49
+		sourceLineageTag: IsCurrent
+		summarizeBy: none
+		sourceColumn: IsCurrent
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Rider = entity
+		mode: directLake
+		source
+			entityName: Dim_Rider
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,64 @@
+table Dim_Location
+	lineageTag: 7a15ea1a-1c67-4690-bcdb-d85775374d73
+	sourceLineageTag: [dbo].[Dim_Location]
+
+	column LocationKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 268af0af-dd1d-485e-846f-bc9f7e1f435d
+		sourceLineageTag: LocationKey
+		summarizeBy: none
+		sourceColumn: LocationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CityName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 99b2b648-6bd8-4211-913d-e44de811a36b
+		sourceLineageTag: CityName
+		summarizeBy: none
+		sourceColumn: CityName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvince
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 236ea34a-f8a2-42da-b33a-f4d221f65348
+		sourceLineageTag: StateProvince
+		summarizeBy: none
+		sourceColumn: StateProvince
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: d9bc9baa-4551-4fb9-ac56-7159c42606c3
+		sourceLineageTag: PostalCode
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZoneNeighborhood
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 93659e9d-42d5-4120-aa90-d82675dbc7b3
+		sourceLineageTag: ZoneNeighborhood
+		summarizeBy: none
+		sourceColumn: ZoneNeighborhood
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Location = entity
+		mode: directLake
+		source
+			entityName: Dim_Location
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

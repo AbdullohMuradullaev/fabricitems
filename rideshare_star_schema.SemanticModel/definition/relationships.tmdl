@@ -1,0 +1,20 @@
+relationship 79921188-d403-465c-85bb-8b6164a3ec2e
+	fromColumn: Fact_Ride.DateKey
+	toColumn: Dim_Date.DateKey
+
+relationship 5f09110b-d8dd-b74c-f909-e05a9818b58e
+	fromColumn: Fact_Ride.DriverKey
+	toColumn: Dim_Driver.DriverKey
+
+relationship 4672c672-5679-9b7c-6f93-51c5fee5f8a6
+	fromColumn: Fact_Ride.RiderKey
+	toColumn: Dim_Rider.RiderKey
+
+relationship 64fe44aa-6932-aeca-f463-9a26eef21803
+	fromColumn: Fact_Ride.TripTypeKey
+	toColumn: Dim_Trip_Type.TripTypeKey
+
+relationship 89f861e6-301f-1d7f-18e7-bca6c78d87d8
+	fromColumn: Fact_Ride.PickupLocationKey
+	toColumn: Dim_Location.LocationKey
+

@@ -1,0 +1,179 @@
+table Fact_Ride
+	lineageTag: 4a77e14f-7662-4949-b5a5-8ad7826e9d8e
+	sourceLineageTag: [dbo].[Fact_Ride]
+
+	column RideID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 914cca95-9124-4536-9a58-c61d0876949a
+		sourceLineageTag: RideID
+		summarizeBy: count
+		sourceColumn: RideID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2f688fe2-6788-466b-b2f3-2f68bb3adc18
+		sourceLineageTag: DateKey
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PickupLocationKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 28205cb8-62a4-47d7-b5be-fe030e618005
+		sourceLineageTag: PickupLocationKey
+		summarizeBy: none
+		sourceColumn: PickupLocationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DropoffLocationKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b5a7921a-771e-4f13-94a6-df247a375096
+		sourceLineageTag: DropoffLocationKey
+		summarizeBy: count
+		sourceColumn: DropoffLocationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TripTypeKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9b8fec03-be7c-456d-9254-126d652a4a92
+		sourceLineageTag: TripTypeKey
+		summarizeBy: none
+		sourceColumn: TripTypeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DriverKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 533eb047-d924-439f-b03a-408f6d9d1aad
+		sourceLineageTag: DriverKey
+		summarizeBy: none
+		sourceColumn: DriverKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiderKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b43c1482-7319-4374-b0b5-057897203ee6
+		sourceLineageTag: RiderKey
+		summarizeBy: none
+		sourceColumn: RiderKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TripDistanceMiles
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(8, 2)
+		lineageTag: c83e8829-25d8-44d7-8c75-8c58efe9d92f
+		sourceLineageTag: TripDistanceMiles
+		summarizeBy: sum
+		sourceColumn: TripDistanceMiles
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TripDurationSeconds
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 55869d06-de85-44d9-88ba-83616f5d1ca3
+		sourceLineageTag: TripDurationSeconds
+		summarizeBy: sum
+		sourceColumn: TripDurationSeconds
+
+		annotation SummarizationSetBy = Automatic
+
+	column BaseFareAmount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(10, 2)
+		lineageTag: b96f3424-ec4a-4df2-b4ac-7739238a203c
+		sourceLineageTag: BaseFareAmount
+		summarizeBy: sum
+		sourceColumn: BaseFareAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SurgeMultiplier
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(4, 2)
+		lineageTag: f81741a6-d9c9-4b1b-b301-43eda47c59a8
+		sourceLineageTag: SurgeMultiplier
+		summarizeBy: sum
+		sourceColumn: SurgeMultiplier
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TipAmount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(10, 2)
+		lineageTag: 4d476e71-31c5-4751-aa27-f7777682e3c4
+		sourceLineageTag: TipAmount
+		summarizeBy: sum
+		sourceColumn: TipAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalFareAmount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(10, 2)
+		lineageTag: d32ff2b8-9168-43ae-87e7-ee45ca42514c
+		sourceLineageTag: TotalFareAmount
+		summarizeBy: sum
+		sourceColumn: TotalFareAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column DriverEarningsAmount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(10, 2)
+		lineageTag: 8dbd6a52-03f1-458b-9b3e-e4c97a2b2ba6
+		sourceLineageTag: DriverEarningsAmount
+		summarizeBy: sum
+		sourceColumn: DriverEarningsAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition Fact_Ride = entity
+		mode: directLake
+		source
+			entityName: Fact_Ride
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

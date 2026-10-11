@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "rideshare_star_schema"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "30b6e867-bb20-aaa7-4987-ad794d6f672c"
+  }
+}

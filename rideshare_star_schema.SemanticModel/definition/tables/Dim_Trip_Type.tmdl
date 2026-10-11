@@ -1,0 +1,55 @@
+table Dim_Trip_Type
+	lineageTag: 5d5cadf8-a1ed-40d6-85a2-287c27ab8848
+	sourceLineageTag: [dbo].[Dim_Trip_Type]
+
+	column TripTypeKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1c14c3c2-efae-47c8-adef-a00d98a2613b
+		sourceLineageTag: TripTypeKey
+		summarizeBy: none
+		sourceColumn: TripTypeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TripTypeName
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: aa62338d-a55e-4b4e-b25b-7f35d6bc9f3a
+		sourceLineageTag: TripTypeName
+		summarizeBy: none
+		sourceColumn: TripTypeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceCategory
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: b91f6372-8e57-4352-8c69-814077b4a72d
+		sourceLineageTag: ServiceCategory
+		summarizeBy: none
+		sourceColumn: ServiceCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSharedRide
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: d1eed5d5-8efd-459b-b7b6-3810b5376c0a
+		sourceLineageTag: IsSharedRide
+		summarizeBy: none
+		sourceColumn: IsSharedRide
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Trip_Type = entity
+		mode: directLake
+		source
+			entityName: Dim_Trip_Type
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

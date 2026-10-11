@@ -1,0 +1,88 @@
+table Dim_Driver
+	lineageTag: 2b5de862-05b4-4d60-a001-e6621ad67705
+	sourceLineageTag: [dbo].[Dim_Driver]
+
+	column DriverKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 12e46039-c824-4a1d-90e6-2b0db9341639
+		sourceLineageTag: DriverKey
+		summarizeBy: none
+		sourceColumn: DriverKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DriverID
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: e3674899-806e-4285-9052-535cd4bc7f60
+		sourceLineageTag: DriverID
+		summarizeBy: none
+		sourceColumn: DriverID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DriverName
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 7c835d91-449c-4e2c-b513-8c1f48c35fed
+		sourceLineageTag: DriverName
+		summarizeBy: none
+		sourceColumn: DriverName
+
+		annotation SummarizationSetBy = Automatic
+
+	column VehicleMake
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: b9e63a5c-5a28-4f2b-8b18-76e8073c079d
+		sourceLineageTag: VehicleMake
+		summarizeBy: none
+		sourceColumn: VehicleMake
+
+		annotation SummarizationSetBy = Automatic
+
+	column VehicleModel
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: c9e099ba-8624-4ba4-a400-285752ee8eb1
+		sourceLineageTag: VehicleModel
+		summarizeBy: none
+		sourceColumn: VehicleModel
+
+		annotation SummarizationSetBy = Automatic
+
+	column DriverRating
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(3, 2)
+		lineageTag: 135a8a4a-942a-4b85-8cf9-a9ce5b509da1
+		sourceLineageTag: DriverRating
+		summarizeBy: none
+		sourceColumn: DriverRating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column IsActive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: caf3f08f-96d1-42e9-94c1-4372ec427135
+		sourceLineageTag: IsActive
+		summarizeBy: none
+		sourceColumn: IsActive
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Driver = entity
+		mode: directLake
+		source
+			entityName: Dim_Driver
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
